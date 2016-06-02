@@ -1,0 +1,30 @@
+{% load staticfiles %}
+{% load humanize %}
+
+{% block content %}
+
+    {% if object_list.count %}
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Bark</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ object.user }}</td>
+                    <td>{{ object.content }}</td>
+                    <td>{{ object.published_at|naturaltime }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        No barks.... yet!
+    {% endif %}
+
+
+{% endblock %}
