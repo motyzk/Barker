@@ -20,7 +20,7 @@ class ListBarksView(ListView):
     page_title = "BarkerHome"
     model = models.Bark
 
-    # def get_queryset(self):
-    #     return super().get_queryset().filter(user=self.request.user)
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
 
 
