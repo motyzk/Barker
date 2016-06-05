@@ -1,4 +1,3 @@
-project/barker/__pycache__
-project/barker/migrations/__pycache__
-project/db.sqlite3
+__pycache__
+db.sqlite3
 .idea

@@ -33,12 +33,11 @@ class BarksTestCase(TestCase):
         b.save()
 
     def test_user_page(self):
-        u = User.objects.create_user('moshe')
         b = models.Bark(
-            user=u,
+            user=User.objects.create_user('moshe'),
             content='my first bark',
         )
         b.save()
-        url = '/moshe/'
+        url = '/barker/moshe/'
         resp=self.client.get(url)
         self.assertContains(resp, b.content)

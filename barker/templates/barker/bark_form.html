@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+
+{% block content %}
+
+    <a href="{% url "barker:list" %}">Barker</a>
+    &gt;
+    Bark
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                Bark!!
+            </button>
+        {% endbuttons %}
+    </form>
+
+{% endblock %}

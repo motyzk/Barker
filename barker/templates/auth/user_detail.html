@@ -1,10 +1,9 @@
+
 {% extends "base.html" %}
-{% load humanize %}
-{% load bootstrap3 %}
-
 {% block content %}
+{% load humanize %}
 
-    {% if object_list.count %}
+    {% if object.barks.all %}
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -14,7 +13,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for object in object_list %}
+            {% for object in object.barks.all %}
                 <tr>
                     <td>
                         <a href="{{ object.get_absolute_url }}">
@@ -27,10 +26,8 @@
             {% endfor %}
             </tbody>
         </table>
-        {% bootstrap_pagination page_obj %}
     {% else %}
         No barks
     {% endif %}
-
 
 {% endblock %}

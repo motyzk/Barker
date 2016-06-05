@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+import barker.views
 
 urlpatterns = [
     url(r'^barker/', include('barker.urls')),
+    url(r'^login/$', barker.views.LoginView.as_view(), name='login'),
+    url(r'^logout/$', barker.views.LogoutView.as_view(), name='logout'),
     url(r'^admin/', admin.site.urls),
 ]
